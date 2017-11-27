@@ -1,32 +1,51 @@
 package LADDER;
 
 public class Row {
+	
+	enum Direction{
+		LEFT(-1),
+		CENTER(0),
+		RIGHT(1);
+		
+		private int no;
+		private Direction(int no) {
+			// TODO Auto-generated constructor stub
+		this.no = no;
+		}
+		public int getNo(){
+			return no;
+		}
+	}
+	
+
 	int[] persons;
 
-	Row(int noOfPerson) {
+	public Row(int noOfPerson) {
 		persons = new int[noOfPerson];
 	}
 
-	void drawLine(int startPostion) {
-		persons[startPostion] = 1;
-		persons[startPostion + 1] = 1;
+	public void drawLine(int startPostion) {
+		persons[startPostion] = Direction.RIGHT.getNo();
+		persons[startPostion + 1] = Direction.LEFT.getNo();
 
 	}
 
-	int moveRow(int nthOfPerson) {
+	public int move(int nthOfPerson) {
 		if (isNoLine(nthOfPerson)) {
 			return nthOfPerson;
 		}
-		// 좌측처리
-		if (isNotLeftEnd(nthOfPerson) && canLeftt(nthOfPerson)) {
-			return nthOfPerson - 1;
+		
+		if(persons[nthOfPerson]==1){
+			return nthOfPerson +1;
 		}
-		return nthOfPerson + 1;
+		
+		
+		return nthOfPerson - 1;
 	}
 
 	
 	private boolean canLeftt(int nthOfPerson) {
-		return persons[nthOfPerson - 1] == 1;
+		return persons[nthOfPerson - 1] == Direction.RIGHT.getNo();
 	}
 
 	private boolean isNotLeftEnd(int nthOfPerson) {
@@ -34,6 +53,6 @@ public class Row {
 	}
 
 	private boolean isNoLine(int nthOfPerson) {
-		return persons[nthOfPerson] == 0;
+		return persons[nthOfPerson] == Direction.CENTER.getNo();
 	}
 }
