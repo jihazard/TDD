@@ -1,10 +1,10 @@
 package LADDER;
 
-public class Ladder {
+ class Ladder {
 
-	Row[] rows;
+	private Row[] rows;
 	
-	public Ladder(int countOfRows, int noOfPerson) {
+	 Ladder(int countOfRows, int noOfPerson) {
 		// TODO Auto-generated constructor stub
 		rows = new Row[countOfRows];
 		for (int i = 0; i < countOfRows; i++) {
@@ -14,13 +14,13 @@ public class Ladder {
 		
 	}
 
-	public void drawLine(int noOfRow, int startPosition) {
+	 void drawLine(int noOfRow, int startPosition) {
 		// TODO Auto-generated method stub
 		rows[noOfRow].drawLine(startPosition);
 	}
 
 	// 좌우이동 처리 로직
-	public int run(int nthOfPerson) {
+	 int run(int nthOfPerson) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < rows.length; i++) {
 			

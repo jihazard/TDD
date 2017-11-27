@@ -20,11 +20,27 @@ public class Row {
 
 	int[] persons;
 
-	public Row(int noOfPerson) {
-		persons = new int[noOfPerson];
+	public Row(int noOfPerson)  {
+		if(noOfPerson < 1) {
+			throw new IllegalArgumentException(String.format("사람의 수는 ㅎ한명이사잉어야 합니다. : %d", noOfPerson));
+			}
+		persons = new int[noOfPerson];		
 	}
 
-	public void drawLine(int startPostion) {
+	 public void drawLine(int startPostion) {
+		 if(startPostion <0 ) {
+			 throw new IllegalArgumentException(String.format("시작시점은 0보다 커야 합니다.. : %d",startPostion));
+		 }
+		 
+		 if(startPostion >= persons.length-1){
+			 throw new IllegalArgumentException(String.format("시작시점은  %d 미만이어야 합니다. 현재값 : %d",persons.length-1,startPostion));
+		 }
+		 
+		 if(persons[startPostion]==-1){
+			 throw new IllegalArgumentException("선을 그을수 없는 위치입니다.");
+		 }
+		 
+		 
 		persons[startPostion] = Direction.RIGHT.getNo();
 		persons[startPostion + 1] = Direction.LEFT.getNo();
 
