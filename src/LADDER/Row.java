@@ -20,14 +20,18 @@ public class Row {
 
 	int[] persons;
 
-	public Row(int noOfPerson)  {
-		if(noOfPerson < 1) {
-			throw new IllegalArgumentException(String.format("사람의 수는 ㅎ한명이사잉어야 합니다. : %d", noOfPerson));
-			}
-		persons = new int[noOfPerson];		
+	public Row(NaturalNumber noOfPerson)  {
+
+		
+		persons = new int[noOfPerson.getNumber()];		
 	}
 
-	 public void drawLine(int startPostion) {
+	 public Row(int i) {
+		// TODO Auto-generated constructor stub
+		 persons = new int[i];	
+	}
+
+	public void drawLine(int startPostion) {
 		 if(startPostion <0 ) {
 			 throw new IllegalArgumentException(String.format("시작시점은 0보다 커야 합니다.. : %d",startPostion));
 		 }
@@ -43,6 +47,24 @@ public class Row {
 		 
 		persons[startPostion] = Direction.RIGHT.getNo();
 		persons[startPostion + 1] = Direction.LEFT.getNo();
+
+	}
+	
+	public void drawLine(NaturalNumber startPostion) {
+		  
+		 int startIndex = startPostion.toArrayIndex();
+		 
+		if(startIndex >= persons.length-1){
+			 throw new IllegalArgumentException(String.format("시작시점은  %d 미만이어야 합니다. 현재값 : %d",persons.length-1,startPostion));
+		 }
+		 
+		 if(persons[startIndex]==-1){
+			 throw new IllegalArgumentException("선을 그을수 없는 위치입니다.");
+		 }
+		 
+		 
+		persons[startIndex] = Direction.RIGHT.getNo();
+		persons[startIndex + 1] = Direction.LEFT.getNo();
 
 	}
 
