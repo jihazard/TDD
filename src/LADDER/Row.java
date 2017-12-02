@@ -48,27 +48,27 @@ public class Row {
 
 	}
 
-	public int move(int nthOfPerson) {
-		if (isNoLine(nthOfPerson)) {
-			return nthOfPerson;
+
+	
+	public int move(NaturalNum nthOfPerson) {
+		
+		if (isNoLine(nthOfPerson.toArrayIndex())) {
+			return nthOfPerson.getNumber();
 		}
 		
-		if(persons[nthOfPerson]==1){
-			return nthOfPerson +1;
+		if(canLeftt(nthOfPerson.toArrayIndex())){
+			return nthOfPerson.getNumber() +1;
 		}
 		
 		
-		return nthOfPerson - 1;
+		return nthOfPerson.getNumber() - 1;
+	}
+	
+	private boolean canLeftt(int nthOfPerson) {
+		return persons[nthOfPerson] == Direction.RIGHT.getNo();
 	}
 
 	
-	private boolean canLeftt(int nthOfPerson) {
-		return persons[nthOfPerson - 1] == Direction.RIGHT.getNo();
-	}
-
-	private boolean isNotLeftEnd(int nthOfPerson) {
-		return nthOfPerson - 1 >= 0;
-	}
 
 	private boolean isNoLine(int nthOfPerson) {
 		return persons[nthOfPerson] == Direction.CENTER.getNo();

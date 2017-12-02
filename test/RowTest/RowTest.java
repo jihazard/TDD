@@ -41,10 +41,10 @@ public class RowTest {
 
 	public void testWhenNoLine() throws Exception {
 		
-		int target = row.move(0);
+		int target = row.move(new NaturalNum(1));
 		assertEquals(0, target);
 
-		target = row.move(2);
+		target = row.move(new NaturalNum(3));
 		assertEquals(2, target);
 
 	}
@@ -54,8 +54,8 @@ public class RowTest {
 		// 1 1 0
 		
 		row.drawLine(new NaturalNum(2));
-		int target = row.move(2);
-		assertEquals(1, target);
+		int target = row.move(new NaturalNum(3));
+		assertEquals(3, target);
 
 		
 
@@ -67,9 +67,9 @@ public class RowTest {
 		
 		row.drawLine(new NaturalNum(1));
 
-		int target = row.move(1);
+		int target = row.move(new NaturalNum(2));
 
-		assertEquals(2, target);
+		assertEquals(3, target);
 
  
 

@@ -16,14 +16,11 @@ class Ladder {
 
 	}
 
-
-
-	
 	void drawLine(NaturalNum height, NaturalNum startPosition) {
 		// TODO Auto-generated method stub
 		int startIndex = height.toArrayIndex();
-	
-		if (startIndex < rows.length - 1) {
+		
+		if (startIndex > rows.length - 1) {
 			throw new IllegalArgumentException(String.format("사다리 최대 높이를 넘어씃ㅂ니다. : %d", height));
 
 		}
@@ -31,17 +28,19 @@ class Ladder {
 		rows[startIndex].drawLine(startPosition );
 	}
   
+
+
 	// 좌우이동 처리 로직
-	int run(int nthOfPerson) {
+	int run(NaturalNum nthOfPerson) {
 		// TODO Auto-generated method stub
+		int target=nthOfPerson.getNumber()	;
 		for (int i = 0; i < rows.length; i++) {
 
 			Row row = rows[i];
-			nthOfPerson = row.move(nthOfPerson);
+			target = row.move(new NaturalNum(target));
 
 		}
 
-		return nthOfPerson;
+		return target;
 	}
-
 }
