@@ -8,6 +8,8 @@ import junit.framework.TestCase;
 
 public class ladderTest extends TestCase {
 
+	private Ladder ladder;
+
 	protected void setUp() throws Exception {
 		super.setUp();
 	}
@@ -24,15 +26,14 @@ public class ladderTest extends TestCase {
 	}
 */
 	public void testWhenLineLeft() throws Exception {
-		// 1 1 0
-		Ladder ladder = new Ladder(1,3);
-		ladder.drawLine(0, 1);
+		ladder = new Ladder(new NaturalNum(1),new NaturalNum(3));
+		ladder.drawLine(new NaturalNum(1),new NaturalNum(3));
 		int target = ladder.run(2);
 		assertEquals(1, target);
 
 		// 0 1 1
-		ladder = new Ladder(1,3);
-		ladder.drawLine(0,0);
+	    ladder = new Ladder(new NaturalNum(1),new NaturalNum(3));
+		ladder.drawLine(new NaturalNum(1),new NaturalNum(1));
 		
 		target = ladder.run(0);
 
@@ -40,15 +41,15 @@ public class ladderTest extends TestCase {
 
 	public void testWhenLineRight() throws Exception {
 		// 0 1 1
-		Ladder ladder = new Ladder(1,3);
-		ladder.drawLine(0,1);
+		new Ladder(new NaturalNum(1),new NaturalNum(3));
+		ladder.drawLine(new NaturalNum(1),new NaturalNum(3));
 
 		int target = ladder.run(1);
 		assertEquals(2, target);
 
 		// 0 1 1
-		ladder = new Ladder(1,3);
-		ladder.drawLine(0, 1);
+		ladder = new Ladder(new NaturalNum(1),new NaturalNum(3));
+		ladder.drawLine(new NaturalNum(1),new NaturalNum(2));
 		target = ladder.run(2);
 		assertEquals(1, target);
 	}
@@ -58,10 +59,10 @@ public class ladderTest extends TestCase {
 		//1 1 0 0 
 		//0 1 1 0
 		//0 0 1 1
- 		Ladder ladder = new Ladder(3,4);
-		ladder.drawLine(0, 0);
-		ladder.drawLine(1, 1);
-		ladder.drawLine(2, 2);
+ 		Ladder ladder =  new Ladder(new NaturalNum(3),new NaturalNum(4));
+ 		ladder.drawLine(new NaturalNum(1),new NaturalNum(1));
+		ladder.drawLine(new NaturalNum(2),new NaturalNum(2));
+		ladder.drawLine(new NaturalNum(3),new NaturalNum(3));
 		
 		
 		assertEquals(3, ladder.run(0));
