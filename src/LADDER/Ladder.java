@@ -31,16 +31,14 @@ class Ladder {
 
 
 	// 좌우이동 처리 로직
-	int run(NaturalNum nthOfPerson) {
-		// TODO Auto-generated method stub
-		int target=nthOfPerson.getNumber()	;
-		for (int i = 0; i < rows.length; i++) {
 
+	int run(Marker nthOfPerson) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < rows.length; i++) {
 			Row row = rows[i];
-			target = row.move(new NaturalNum(target));
+			nthOfPerson = row.move(nthOfPerson);
 
 		}
-
-		return target;
+		return nthOfPerson.getNumber();
 	}
 }

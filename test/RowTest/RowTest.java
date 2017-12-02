@@ -7,8 +7,8 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
+import LADDER.Marker;
 import LADDER.NaturalNum;
-import LADDER.NaturalNumber;
 import LADDER.Row;
 
 public class RowTest {
@@ -18,7 +18,7 @@ public class RowTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		row = new Row(new NaturalNum(3));
+		row = new Row(new Marker(3));
 	
 	}
 	
@@ -27,8 +27,8 @@ public class RowTest {
 	public void testStartPostionWhenOverNoOfPersons() throws Exception {
 		try {
 			
-			row.drawLine(new NaturalNum(1));
-			row.drawLine(new NaturalNum(2));
+			row.drawLine(new Marker(1));
+			row.drawLine(new Marker(2));
 			fail("IllegalArgumentException 일리갈아규먼트 에러가 발생해야 한다.");
 		} catch (IllegalArgumentException e) {
 			// TODO: handle exception
@@ -41,11 +41,11 @@ public class RowTest {
 
 	public void testWhenNoLine() throws Exception {
 		
-		int target = row.move(new NaturalNum(1));
-		assertEquals(0, target);
+		NaturalNum target = row.move(new Marker(1));
+		assertEquals(1, target.getNumber());
 
-		target = row.move(new NaturalNum(3));
-		assertEquals(2, target);
+		target = row.move(new Marker(3));
+		assertEquals(2, target.getNumber());
 
 	}
 
@@ -53,9 +53,9 @@ public class RowTest {
 	public void testWhenLineLeft() throws Exception {
 		// 1 1 0
 		
-		row.drawLine(new NaturalNum(2));
-		int target = row.move(new NaturalNum(3));
-		assertEquals(3, target);
+		row.drawLine(new Marker(2));
+		NaturalNum target = row.move(new Marker(3));
+		assertEquals(2, target.getNumber());
 
 		
 
@@ -65,11 +65,10 @@ public class RowTest {
 	public void testWhenLineRight() throws Exception {
 		// 0 1 1
 		
-		row.drawLine(new NaturalNum(1));
+		row.drawLine(new Marker(1));
 
-		int target = row.move(new NaturalNum(2));
-
-		assertEquals(3, target);
+			NaturalNum target = row.move(new Marker(2));
+			assertEquals(3, target.getNumber());
 
  
 

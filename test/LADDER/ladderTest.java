@@ -21,10 +21,10 @@ public class ladderTest extends TestCase {
 		ladder.drawLine(new NaturalNum(3),new NaturalNum(3));
 		
 		
-		assertEquals(4, ladder.run(new NaturalNum(1)));
-		assertEquals(1, ladder.run(new NaturalNum(2)));
-		assertEquals(2, ladder.run(new NaturalNum(3)));
-		assertEquals(3, ladder.run(new NaturalNum(4)));
+		assertEquals(4, ladder.run(new Marker(1)));
+		assertEquals(1, ladder.run(new Marker(2)));
+		assertEquals(2, ladder.run(new Marker(3)));
+		assertEquals(3, ladder.run(new Marker(4)));
 	}
 	
 	

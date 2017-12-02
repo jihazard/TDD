@@ -49,20 +49,24 @@ public class Row {
 	}
 
 
+
 	
-	public int move(NaturalNum nthOfPerson) {
+
+	
+	public Marker move(Marker startMarker) {
 		
-		if (isNoLine(nthOfPerson.toArrayIndex())) {
-			return nthOfPerson.getNumber();
+		if (isNoLine(startMarker.toArrayIndex())) {
+			return startMarker;
 		}
 		
-		if(canLeftt(nthOfPerson.toArrayIndex())){
-			return nthOfPerson.getNumber() +1;
+		if(canLeftt(startMarker.toArrayIndex())){
+			return startMarker.moveRight();
 		}
 		
 		
-		return nthOfPerson.getNumber() - 1;
+		return startMarker.moveLeft();
 	}
+	
 	
 	private boolean canLeftt(int nthOfPerson) {
 		return persons[nthOfPerson] == Direction.RIGHT.getNo();
