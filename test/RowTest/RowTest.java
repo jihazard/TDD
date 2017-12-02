@@ -8,8 +8,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import LADDER.Marker;
-import LADDER.NaturalNum;
 import LADDER.Row;
+import core.NaturalNum;
 
 public class RowTest {
 	private Row row;

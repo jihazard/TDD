@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import core.NaturalNum;
 import junit.framework.TestCase;
 
 public class ladderTest extends TestCase {

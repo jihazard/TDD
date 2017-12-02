@@ -1,10 +1,10 @@
-package LADDER;
+package core;
 
 public class NaturalNum {
 
 	private int number;
 
-	 NaturalNum(int number) {
+	 public NaturalNum(int number) {
 		// TODO Auto-generated constructor stub
 		if(number < 1){
 			throw new IllegalArgumentException(String.format(". 자연수는 1보다 커야 합니다. %d" , number));
@@ -17,7 +17,7 @@ public class NaturalNum {
 		return this.number ;
 	}
 
-	 int toArrayIndex() {
+	 public int toArrayIndex() {
 		// TODO Auto-generated method stub
 		return number - 1 ;
 	}

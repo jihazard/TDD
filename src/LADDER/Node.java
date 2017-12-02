@@ -31,15 +31,17 @@ import LADDER.Node.Direction;
 	
 	public Marker move(Marker marker) {
 		// TODO Auto-generated method stub
-		if(this.direction== Direction.RIGHT){
+		if(isRightDirection()){
 			return marker.moveRight();
 		}
-		if(this.direction== Direction.LEFT){
+		if(isLeftDirection()){
 			return marker.moveLeft();
 		}
 	
 		return marker;
 	}
+
+
 
 	static Node createCenterNode(){
 		return new Node(Direction.CENTER);
@@ -47,8 +49,21 @@ import LADDER.Node.Direction;
 	static Node createLEFTNode(){
 		return new Node(Direction.LEFT);
 	}
+	
+
+
 	static Node createRIGHTNode(){
 		return new Node(Direction.RIGHT);
+	}
+	
+	public boolean isLeftDirection() {
+		// TODO Auto-generated method stub
+		return this.direction == Direction.LEFT;
+	}
+	
+	private boolean isRightDirection() {
+		// TODO Auto-generated method stub
+		return this.direction== Direction.RIGHT;
 	}
 
 	@Override
@@ -72,6 +87,9 @@ import LADDER.Node.Direction;
 			return false;
 		return true;
 	}
+
+
+	
 
 
 	
