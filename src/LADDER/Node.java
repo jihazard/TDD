@@ -89,6 +89,15 @@ import LADDER.Node.Direction;
 	}
 
 
+	public int getSymbol() {
+		// TODO Auto-generated method stub
+		if(isLeftDirection()) return -1;
+		if(isRightDirection()) return 1;
+		
+		return 0;
+	}
+
+
 	
 
 

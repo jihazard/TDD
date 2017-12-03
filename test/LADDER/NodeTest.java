@@ -50,4 +50,14 @@ public void testCenter() throws Exception {
 		Marker marker = node.move(new Marker(3));
 		assertEquals(new Marker(3), marker);
 	}
+	
+	@Test
+	public void testGetSymbol() throws Exception {
+		Node node = Node.createCenterNode();
+		assertEquals(0,node.getSymbol() );
+		node = Node.createLEFTNode();
+		assertEquals(-1,node.getSymbol() );
+		node = Node.createRIGHTNode();
+		assertEquals(1,node.getSymbol() );
+	}
 }
