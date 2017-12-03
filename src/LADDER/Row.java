@@ -4,13 +4,14 @@ import core.NaturalNum;
 
 public class Row {
 
-	int[] persons;
 	Node[] nodes;
 
 	public Row(NaturalNum noOfPerson) {
 
 		nodes = new Node[noOfPerson.getNumber()];
-		
+	for (int i = 0; i < nodes.length; i++) {
+		nodes[i] = Node.createCenterNode();
+	}
 	}
 
 	public void drawLine(NaturalNum startPosition) {
@@ -40,4 +41,9 @@ public class Row {
 		return nodes[startMarker.toArrayIndex()].move(startMarker);
 	}
 
+	Node[] getNodes() {
+		// TODO Auto-generated method stub
+		return this.nodes;
+	}
+	
 }

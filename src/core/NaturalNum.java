@@ -9,7 +9,7 @@ public class NaturalNum {
 		if(number < 1){
 			throw new IllegalArgumentException(String.format(". 자연수는 1보다 커야 합니다. %d" , number));
 		}
-		this.number=  number;
+		this.number =  number;
 	}
 
 	 public int getNumber() {

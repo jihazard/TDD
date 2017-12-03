@@ -1,6 +1,7 @@
 package LADDER;
 
 import core.NaturalNum;
+import core.NaturalNumberTest;
 
 class Ladder {
 
@@ -44,8 +45,38 @@ class Ladder {
 		for (int i = 0; i < rows.length; i++) {
 			Row row = rows[i];
 			nthOfPerson = row.move(nthOfPerson);
+			String result =generator(rows, new NaturalNum(i+1), nthOfPerson);
+			System.out.println(result);
 
 		}
 		return nthOfPerson;
+	}
+
+	 static String generator(Row[] rows, NaturalNum height, NaturalNum nOfPerson) {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < rows.length; i++) {
+			Row row = rows[i];
+			Node[] nodes= row.getNodes();
+			for (int j = 0; j < nodes.length; j++) {
+				Node node= nodes[j];	
+				if (node.equals(Node.createCenterNode())){
+					sb.append("0");
+					}else if(node.equals(Node.createLEFTNode())){
+						sb.append("-1");
+					}else if(node.equals(Node.createRIGHTNode())){
+						sb.append("1");
+					}
+				if (height.toArrayIndex() == i && nOfPerson.toArrayIndex()== j){
+					sb.append("*");
+					}
+				sb.append(" ");
+			}
+			
+			sb.append("\n"); 
+			
+		}
+		
+		return sb.toString();
 	}
 }
