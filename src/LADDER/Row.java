@@ -1,6 +1,7 @@
 package LADDER;
 
 import core.NaturalNum;
+import core.Postion;
 
 public class Row {
 
@@ -51,10 +52,29 @@ public class Row {
 		for (int j = 0; j < nodes.length; j++) {
 			Node node= nodes[j];	
 			sb.append(node.getSymbol());
-			
-			if (height.toArrayIndex() == currentHeight && nOfPerson.toArrayIndex()== j){
+			node.appendSymbol(sb);
+			if (height.equals(NaturalNum.createFromArrayIndex(currentHeight)) &&
+					nOfPerson.equals(NaturalNum.createFromArrayIndex(j))){
 				sb.append("*");
 				}
+			sb.append(" ");
+		}
+		
+		sb.append("\n");
+	}
+	 
+	 
+	 
+	 void generatorRow(StringBuilder sb, int currentHeight ,Postion postion) {
+			
+		for (int j = 0; j < nodes.length; j++) {
+			Node node= nodes[j];	
+			sb.append(node.getSymbol());
+			node.appendSymbol(sb);
+			if(postion.equals(Postion.createFromArrayIndex(currentHeight,j))){
+				sb.append("*");
+			}
+			
 			sb.append(" ");
 		}
 		

@@ -2,6 +2,7 @@ package LADDER;
 
 import core.NaturalNum;
 import core.NaturalNumberTest;
+import core.Postion;
 
 class Ladder {
 
@@ -45,7 +46,7 @@ class Ladder {
 		for (int i = 0; i < rows.length; i++) {
 			Row row = rows[i];
 			nthOfPerson = row.move(nthOfPerson);
-			String result =generator(rows, new NaturalNum(i+1), nthOfPerson);
+			String result =generator(rows, new Postion(NaturalNum.createFromArrayIndex(i), nthOfPerson));
 			System.out.println(result);
 
 		}
@@ -58,6 +59,18 @@ class Ladder {
 		for (int i = 0; i < rows.length; i++) {
 			Row row = rows[i];
 			row.generatorRow( sb, i,height, nOfPerson); 
+			
+		}
+		
+		return sb.toString();
+	}
+	 
+	 static String generator(Row[] rows, Postion postion) {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < rows.length; i++) {
+			Row row = rows[i];
+			row.generatorRow( sb, i, postion); 
 			
 		}
 		

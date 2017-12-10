@@ -2,6 +2,7 @@ package core;
 
 public class NaturalNum {
 
+	private static final int INTERVAL = 1;
 	private int number;
 
 	 public NaturalNum(int number) {
@@ -19,7 +20,7 @@ public class NaturalNum {
 
 	 public int toArrayIndex() {
 		// TODO Auto-generated method stub
-		return number - 1 ;
+		return number - INTERVAL ;
 	}
 
 	@Override
@@ -42,6 +43,11 @@ public class NaturalNum {
 		if (number != other.number)
 			return false;
 		return true;
+	}
+
+	public static NaturalNum createFromArrayIndex(int i) {
+		// TODO Auto-generated method stub
+		return new NaturalNum(i + i);
 	}
 
 	 

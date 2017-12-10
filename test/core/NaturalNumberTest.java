@@ -34,4 +34,14 @@ public class NaturalNumberTest {
 		assertEquals(2, number.toArrayIndex());
 		
 	}
+	
+	@Test
+	public void testCreateFromArrayIndex() throws Exception {
+		NaturalNum actual = NaturalNum.createFromArrayIndex(1);
+		assertEquals(new NaturalNum(2), actual);
+		
+		
+	}
+	
+	
 }

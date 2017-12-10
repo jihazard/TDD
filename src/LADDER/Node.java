@@ -66,6 +66,13 @@ import LADDER.Node.Direction;
 		return this.direction== Direction.RIGHT;
 	}
 
+
+	public void appendSymbol(StringBuilder sb) {
+		// TODO Auto-generated method stub
+		sb.append(getSymbol());
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -89,13 +96,14 @@ import LADDER.Node.Direction;
 	}
 
 
-	public int getSymbol() {
+	int getSymbol() {
 		// TODO Auto-generated method stub
 		if(isLeftDirection()) return -1;
 		if(isRightDirection()) return 1;
 		
 		return 0;
 	}
+
 
 
 	
