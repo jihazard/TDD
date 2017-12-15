@@ -5,77 +5,34 @@ import core.NaturalNumberTest;
 import core.Postion;
 
 class Ladder {
-
-	private Row[] rows;
-
-
+	private LadderCreator ladderCreator;
+	
 	Ladder(NaturalNum height, NaturalNum noOfPerson) {
 		// TODO Auto-generated constructor stub
-
-		rows = new Row[height.getNumber()];
-		for (int i = 0; i < height.getNumber(); i++) {
-			rows[i] = new Row(noOfPerson);
-
-		}
-
+		ladderCreator = new LadderCreator(height, noOfPerson);
+		
 	}
 
 	void drawLine(NaturalNum height, NaturalNum startPosition) {
 		// TODO Auto-generated method stub
-		int startIndex = height.toArrayIndex();
-		
-		if ( isOverHeight(height)) {
-			throw new IllegalArgumentException(String.format("사다리 최대 높이를 넘어씃ㅂ니다. : %d", height));
-
-		}
-
-		rows[ height.toArrayIndex()].drawLine(startPosition );
+	
+		ladderCreator.drawLine(height, startPosition);
+	
 	}
 
-	private boolean isOverHeight(NaturalNum height) {
-		return height.toArrayIndex()> rows.length - 1;
-	}
-  
-
+	
 
 	// 좌우이동 처리 로직
 
 
 	Marker run(Marker nthOfPerson) {
 		// TODO Auto-generated method stub
-		for (int i = 0; i < rows.length; i++) {
-			Row row = rows[i];
-			nthOfPerson = row.move(nthOfPerson);
-			String result =generator(rows, new Postion(NaturalNum.createFromArrayIndex(i), nthOfPerson));
-			System.out.println(result);
-
-		}
-		return nthOfPerson;
+		LadderRunner ladderRunner = new LadderRunner(ladderCreator.getLadder()); 
+		return ladderRunner.run(nthOfPerson);
 	}
 
-	 static String generator(Row[] rows, NaturalNum height, NaturalNum nOfPerson) {
-		// TODO Auto-generated method stub
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < rows.length; i++) {
-			Row row = rows[i];
-			row.generatorRow( sb, i,height, nOfPerson); 
-			
-		}
-		
-		return sb.toString();
-	}
-	 
-	 static String generator(Row[] rows, Postion postion) {
-		// TODO Auto-generated method stub
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < rows.length; i++) {
-			Row row = rows[i];
-			row.generatorRow( sb, i, postion); 
-			
-		}
-		
-		return sb.toString();
-	}
+
+	
 
 	private static void generatorRow(NaturalNum height, NaturalNum nOfPerson, StringBuilder sb, int i, Row row) {
 		Node[] nodes= row.getNodes();

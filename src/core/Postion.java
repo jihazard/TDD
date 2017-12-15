@@ -56,6 +56,11 @@ public class Postion {
 		return true;
 	}
 
+	public static Postion creat(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	 
 	
 }

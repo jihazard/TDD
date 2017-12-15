@@ -7,7 +7,7 @@ public class NaturalNum {
 
 	 public NaturalNum(int number) {
 		// TODO Auto-generated constructor stub
-		if(number < 1){
+		if(number < 0){
 			throw new IllegalArgumentException(String.format(". 자연수는 1보다 커야 합니다. %d" , number));
 		}
 		this.number =  number;

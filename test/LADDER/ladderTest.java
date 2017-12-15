@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import core.NaturalNum;
 import core.NaturalNumberTest;
+import core.Postion;
 import junit.framework.TestCase;
 
 public class ladderTest extends TestCase {
@@ -49,7 +50,7 @@ public class ladderTest extends TestCase {
 		for (int i = 0; i < rows.length; i++) {
 			rows[i] = new Row(new NaturalNum(3));	
 		}
-		String result = Ladder.generator(rows , new NaturalNum(1),new NaturalNum(1));
+		String result = LadderRunner.generator(rows , new Postion( new NaturalNum(1), new NaturalNum(1)));
 		assertEquals("0* 0 0 \n0 0 0 \n0 0 0 \n", result);
 	}
 	
@@ -60,7 +61,7 @@ public class ladderTest extends TestCase {
 			rows[i] = new Row(new NaturalNum(3));	
 		}
 		rows[0].drawLine(new NaturalNum(1));
-		String result = Ladder.generator(rows , new NaturalNum(1),new NaturalNum(1));
+		String result = LadderRunner.generator(rows , new Postion( new NaturalNum(1), new NaturalNum(1)));
 		assertEquals("1* -1 0 \n0 0 0 \n0 0 0 \n", result);
 	}
 
